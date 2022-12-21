@@ -1,7 +1,7 @@
 import psycopg2
-
+config = "dbname=dropbi_db user=root password=wHt9gk4cE8wLT3Z8 host=qualifier-instance-db.cza4c35jkizp.sa-east-1.rds.amazonaws.com"
 def update(productId,price,last_update):
-  conn = psycopg2.connect("dbname=dropbi_db user=root password=wHt9gk4cE8wLT3Z8 host=qualifier-instance-db.cza4c35jkizp.sa-east-1.rds.amazonaws.com")
+  conn = psycopg2.connect(config)
   cur = conn.cursor()
 
   cur.execute("""
@@ -24,7 +24,7 @@ def update(productId,price,last_update):
   conn.close()
 
 def getProducts(storeId):
-  conn = psycopg2.connect("dbname=drop_bi user=postgres password=1234")
+  conn = psycopg2.connect(config)
   cur = conn.cursor()
   cur.execute("SELECT id,url FROM product_info WHERE store_id = %s ORDER BY id",[storeId])
   res = cur.fetchall()
