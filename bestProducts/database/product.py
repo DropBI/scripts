@@ -1,7 +1,7 @@
 import psycopg2
 
 def update(productId,price,last_update):
-  conn = psycopg2.connect("dbname=drop_bi user=postgres password=1234")
+  conn = psycopg2.connect("dbname=dropbi_db user=root password=wHt9gk4cE8wLT3Z8 host=qualifier-instance-db.cza4c35jkizp.sa-east-1.rds.amazonaws.com")
   cur = conn.cursor()
 
   cur.execute("""
